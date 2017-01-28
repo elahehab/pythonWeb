@@ -16,9 +16,9 @@ def addStrategies():
 @app.route('/addUser', methods=['GET', 'POST'])
 def addUser():
     email = request.form.get("email")
-    write_user_data_to_db(email)
-
-    return "User added"
+    result = write_user_data_to_db(email)
+    print "result is ", str(result)
+    return str(result)
 
 	
 @app.route('/test')
@@ -63,6 +63,7 @@ def write_user_data_to_db(email):
     sql = """INSERT INTO player(email)
              VALUES (\'""" + email + """\')"""
     print sql
+    result = True
     try:
         # Execute the SQL command
         cursor.execute(sql)
@@ -71,9 +72,11 @@ def write_user_data_to_db(email):
     except:
         # Rollback in case there is any error
         db.rollback()
+        result = False
 
     # disconnect from server
     db.close()
+    return result
 
 if __name__ == "__main__":
     app.run()

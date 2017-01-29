@@ -1,11 +1,16 @@
 from flask import Flask
 from flask import request
+from flask import render_template
 import pymysql
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path="", static_folder="static")
+
+@app.route('/')
+def main():
+    return render_template('index.html')
 
 @app.route('/addStrategies', methods=['GET', 'POST'])
-def addStrategies():
+def add_strategies():
     strategies = str(request.form.get("strategies")).split(",")
     playerEmail = request.form.get("playerEmail")
     partId = request.form.get("partId")
@@ -14,17 +19,22 @@ def addStrategies():
     return "Strategies added"
 
 @app.route('/addUser', methods=['GET', 'POST'])
-def addUser():
+def add_user():
     email = request.form.get("email")
     result = write_user_data_to_db(email)
     print "result is ", str(result)
     return str(result)
 
 	
-@app.route('/test')
-def test():
-	print "testing..."
-	return "hello!"
+@app.route('/addGameData', methods=['GET', 'POST'])
+def add_game_data():
+    email = request.form.get("email")
+    data = request.form.get("data")
+    file = open("results/"+email+".txt", "a")
+    file.write(data)
+    file.write("\n")
+    file.close()
+    return "ok"
 
 
 def write_strategy_to_db(playerEmail, partId, strategies):
@@ -60,10 +70,13 @@ def write_user_data_to_db(email):
 
 
     # Prepare SQL query to INSERT a record into the database.
-    sql = """INSERT INTO player(email)
-             VALUES (\'""" + email + """\')"""
+    sql = """INSERT INTO player(email) select * from (select \'""" + email + """\') as tmp where not exists 
+    (select email from player where email=\'""" + email + """\') limit 1"""
+
     print sql
+    
     result = True
+    
     try:
         # Execute the SQL command
         cursor.execute(sql)

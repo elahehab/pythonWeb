@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block title %}Cognitive and Robotics Lab{% endblock %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+{% block content %}
+  <div>
+  <div class="text_body">
+  سلام <br/>
+از شما بابت شرکت کردن در این تست پژوهشی تشکر می‌کنیم. در این تست یک بازی انجام می‌دهید و از شما سوالاتی راجع به این بازی پرسیده می‌شود.
+شرکت کردن در این تست در مجموع ۱۵ الی ۲۰ دقیقه از شما زمان خواهد گرفت.
+برای خواندن راهنمای بازی روی دکمه‌ی «ادامه» کلیک کنید.
+  </div>
+   <form action='./gameInstruction' method = 'POST' class="center_btn">
+   	<input type="submit" name="start_game" value="ادامه" class="continue_btn">
+   </form>
+  </div>
+{% endblock %}

@@ -1,13 +1,27 @@
-from flask import Flask
-from flask import request
-from flask import render_template
+from flask import *
 import pymysql
 
-app = Flask(__name__, static_url_path="", static_folder="static")
+app = Flask(__name__)
 
 @app.route('/')
-def main():
-    return render_template('index.html')
+def start():
+    return render_template('instructions.html')
+
+@app.route('/gameInstruction', methods=['GET', 'POST'])
+def show_game_instruction():
+    return render_template('game_instruction.html')
+
+@app.route('/researchInstruction', methods=['GET', 'POST'])
+def show_research_instruction():
+    return render_template('research_instruction.html')
+
+@app.route('/play')
+def play():
+    return render_template('play.html')
+
+@app.route('/finish')
+def finish():
+    return render_template('end.html')
 
 @app.route('/addStrategies', methods=['GET', 'POST'])
 def add_strategies():

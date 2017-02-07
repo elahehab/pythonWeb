@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block title %}Cognitive and Robotics Lab{% endblock %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+{% block content %}
+  <div>
+	  <div class="text_body">
+	  	<b>راهنمای بازی‌‌:</b><br/>
+در این بازی ابتدا تعدادی ابر نمایش داده می‌شوند که تعدادی از آنها بارانی هستند (شکل ۱). سپس ابرها شروع به حرکت می‌کنند و کم‌کم ابرهای بارانی تبدیل به ابرهای عادی می‌شوند. پس از اینکه ابرها از حرکت ایستادند باید روی ابرهایی که در ابتدا بارانی بودند کلیک کنید. اگر تمامی ابرها را به درستی تشخیص بدهید به مرحله‌ی بعدی خواهید رفت.
+	  </div>
+	  <div style="text-align: center;">
+	  	<figure>
+	  		<img src="/static/img/cloudGame.png">
+	  		<figcaption>شکل ۱</figcaption>
+	  	</figure>
+	  </div>
+	  <form action='./researchInstruction' method = 'POST' class="center_btn">
+	  	<input type="submit" name="continue_to_research" value="ادامه" class="continue_btn">
+	  </form>
+  </div>
+{% endblock %}

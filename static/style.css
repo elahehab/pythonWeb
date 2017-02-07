@@ -1,7 +1,44 @@
 .centered {
   position: fixed;
-  top: 50%;
   left: 50%;
-  margin-top: -300px;
+  margin-top: 5px;
   margin-left: -400px;
+}
+
+.header {
+	height: 50px;
+	background: linear-gradient(#35B1D3, #248CA5);
+	direction: rtl;
+}
+
+.logo {
+	height: 50px;
+}
+
+.text_body {
+	direction: rtl;
+	font-family: BYekan,Tahoma,sans-serif;
+	font-weight: 100;
+	font-size: 16px;
+	text-shadow: -2px 2px 6px rgba(130, 130, 130, 1);
+	color: #000;
+	text-align: center;
+	margin-left: 40px;
+	margin-right: 40px;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.center_btn {
+	text-align: center;
+}
+
+.continue_btn {
+	border-radius: 4px;
+	padding: 10px 24px;
+	font-size: 16px;
+	font-family: BYekan,Tahoma,sans-serif;
+	background-color: #248CA5;
+	color: white;
+	cursor: pointer;
 }

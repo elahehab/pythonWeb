@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+{% block title %}Cognitive and Robotics Lab{% endblock %}
+{% block head %}
+	{{super()}}
+  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
+{% endblock %}
+{% block content %}
+  <div class="bootstrap-frm">
+	  <label>
+	  	لطفا به پرسش‌های زیر پاسخ دهید:
+	  </label>
+	  <form action='./finish' method = 'POST'>
+	  	<label>
+		  	<span>جنسیت: </span>
+  			<select name="sex">
+  				<option value="female">زن</option>
+  				<option value="male">مرد</option>
+  			</select>
+	  	</label>
+	  	<label>
+	  		<span>سن: </span>
+  			<select name="age">
+  				<option value="18">18</option>
+  				<option value="19">19</option>
+  				<option value="20">20</option>
+  				<option value="21">21</option>
+  				<option value="22">22</option>
+  				<option value="23">23</option>
+  				<option value="24">24</option>
+  				<option value="25">25</option>
+  				<option value="26">26</option>
+  				<option value="27">27</option>
+  				<option value="28">28</option>
+  			</select>
+	  	</label>
+	  	<label>
+		  	<span>تحصیلات: </span>
+  			<select name="education">
+  				<option value="under_diploma">زیر دیپلم</option>
+  				<option value="diploma">دیپلم</option>
+  				<option value="bachelor">کارشناسی</option>
+  				<option value="master">کارشناسی ارشد</option>
+  				<option value="phd">دکترا و بالاتر</option>
+  			</select>
+	  	</label>
+	  	<label>
+		  	<label>چند ساعت در روز را به طول متوسط صرف انجام بازی‌های ویدئویی می‌کنید؟</label>
+  			<select name="game_time_in_day">
+  				<option value="zero">صفر</option>
+  				<option value="less_30">کمتر از نیم ساعت</option>
+  				<option value="bet_30_2">بین نیم ساعت تا ۲ ساعت</option>
+  				<option value="more_2">بیشتر از ۲ ساعت</option>
+  			</select>
+	  	</label>
+	  	<label>
+		  	<label>از چند سال پیش این مدت زمان را صرف انجام بازی می‌کردید؟</label>
+  			<select name="since_year">
+  				<option value="1">از سال پیش</option>
+  				<option value="3">از سه سال پیش</option>
+  				<option value="5">از پنج سال پیش</option>
+  				<option value="more">از بیش از پنج سال پیش</option>
+  			</select>
+	  	</label>
+	  	<label>
+		  	<label>بیشتر با استفاده از چه زیرساختی بازی می‌کنید؟</label>
+  			<select name="game_platform">
+  				<option value="cellphone">گوشی موبایل</option>
+  				<option value="pc">کامپیوتر</option>
+  				<option value="console">کنسول</option>
+  			</select>
+	  	</label>
+	  	<label>
+		  	<label>چقدر بازی که انجام دادید را دوست داشتید؟ چقدر برایتان جذاب بود؟</label>
+  			<select name="game_like_level">
+  				<option value="0">کم</option>
+  				<option value="1">متوسط</option>
+  				<option value="2">زیاد</option>
+  			</select>
+	  	</label>
+	  	<label>
+		  	<label>آیا فکر می‌کنید انجام این بازی کمکی به بهبود توانمندی‌های فردی شما می‌کند؟</label>
+  			<select name="help_personal_abilities">
+  				<option value="yes">بله</option>
+  				<option value="no">خیر</option>
+  			</select>
+	  	</label>
+	  	<label>
+		  	<label>آیا فکر می‌کنید در حین بازی عملکردتان بهبود پیدا کرده است؟ </label>
+  			<select name="improve_performance">
+  				<option value="yes">بله</option>
+  				<option value="no">خیر</option>
+  			</select>
+	  	</label>
+	  	<label>
+		  	<label>آیا استراتژی‌تان در حین بازی تغییر کرده و بهبود پیدا کرد؟</label>
+  			<select name="change_strategy">
+  				<option value="yes">بله</option>
+  				<option value="no">خیر</option>
+  			</select>
+	  	</label>
+	  	<input type="submit" name="start_game" value="پایان">
+	  </form>
+  </div>
+{% endblock %}

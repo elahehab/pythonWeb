@@ -29,6 +29,15 @@
     margin-top: 25px;
 }
 
+.text_style {
+	direction: rtl;
+	font-family: BYekan,Tahoma,sans-serif;
+	font-weight: 100;
+	font-size: 16px;
+	text-shadow: -2px 2px 6px rgba(130, 130, 130, 1);
+	color: #000;
+}
+
 .center_btn {
 	text-align: center;
 }
@@ -41,4 +50,22 @@
 	background-color: #248CA5;
 	color: white;
 	cursor: pointer;
+}
+
+.outer_div {
+	overflow: hidden;
+}
+
+.right_div {
+	float: right;
+	direction: rtl;
+}
+
+.left_div {
+	overflow: hidden;
+	direction: rtl;
+}
+
+label {
+	direction: rtl;
 }

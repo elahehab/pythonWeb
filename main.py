@@ -15,12 +15,31 @@ def show_game_instruction():
 def show_research_instruction():
     return render_template('research_instruction.html')
 
-@app.route('/play')
+@app.route('/play', methods=['POST'])
 def play():
     return render_template('play.html')
 
-@app.route('/finish')
+@app.route('/questionnaire', methods=['GET', 'POST'])
+def questionnaire():
+    return render_template('questionnaire.html')
+
+@app.route('/finish', methods=['POST'])
 def finish():
+    if(current_email == "" or current_email == None):
+        print current_email
+        return "invalid email address"
+    else:
+        print current_email
+    sex = request.form.get("sex")
+    age = request.form.get("age")
+    education = request.form.get("education")
+    game_time_in_day = request.form.get("game_time_in_day")
+    since_year = request.form.get("since_year")
+    game_platform = request.form.get("game_platform")
+    game_like_level = request.form.get("game_like_level")
+    help_personal_abilities = request.form.get("help_personal_abilities")
+    improve_performance = request.form.get("improve_performance")
+    change_strategy = request.form.get("change_strategy")
     return render_template('end.html')
 
 @app.route('/addStrategies', methods=['GET', 'POST'])
@@ -35,6 +54,7 @@ def add_strategies():
 @app.route('/addUser', methods=['GET', 'POST'])
 def add_user():
     email = request.form.get("email")
+    
     result = write_user_data_to_db(email)
     print "result is ", str(result)
     return str(result)
@@ -104,6 +124,12 @@ def write_user_data_to_db(email):
     # disconnect from server
     db.close()
     return result
+
+def write_user_personal_data_to_db(sex, age, education, game_time_in_day,
+ since_year, game_platform, game_like_level, help_personal_abilities,
+  improve_performance, change_strategy):
+    print "hello :)"
+
 
 if __name__ == "__main__":
     app.run()
